@@ -35,7 +35,7 @@ pipeline {
         }
 
         stage('Load Image into kind') {
-            steps { sh 'kind load docker-image ${IMAGE}:${TAG} --name ${CLUSTER}' }
+            steps { sh 'docker save ${IMAGE}:${TAG} | docker exec -i ${CLUSTER}-control-plane ctr -n k8s.io images import --all-platforms -' }
         }
 
         stage('Deploy to Kubernetes') {
