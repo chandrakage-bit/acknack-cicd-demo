@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: acknack-service
+  kafka:
+    bootstrap-servers: localhost:9092
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+app:
+  kafka:
+    enabled: false
+    topic: payment-acknack

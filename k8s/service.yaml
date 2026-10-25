@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: acknack-service
+spec:
+  selector:
+    app: acknack-service
+  ports:
+    - port: 80
+      targetPort: 8080
